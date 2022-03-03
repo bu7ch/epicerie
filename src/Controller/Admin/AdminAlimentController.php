@@ -32,8 +32,10 @@ class AdminAlimentController extends AbstractController
     $form = $this->createForm(AlimentType::class, $aliment);
     $form->handleRequest($request);
     if ($form->isSubmitted() && $form->isValid()) {
+      $edit = $aliment->getId() !== null;
       $manager->persist($aliment);
       $manager->flush();
+      $this->addFlash('success',($edit) ? "L'edition à été effectuée" : "l'aliment à été ajouté");
       return $this->redirectToRoute('admin_aliments');
     }
     return $this->render('admin/admin_aliment/newAndEdit.html.twig', [
@@ -50,6 +52,7 @@ class AdminAlimentController extends AbstractController
     if ($this->isCsrfTokenValid('SUP' . $aliment->getId(), $request->get('_token'))) {
       $manager->remove($aliment);
       $manager->flush();
+      $this->addFlash('success', "La supression à été effectruée");
       return $this->redirectToRoute('admin_aliments');
     }
   }
