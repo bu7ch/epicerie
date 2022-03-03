@@ -16,10 +16,10 @@
 	{{form_start(form)}}
 	<div class="row">
 		<div class="col-6">
-			{% if aliment.image %}
-				<img src="{{asset("images/aliments/#{aliment.image}")}}" style="width:25%" alt="">
+			{% if edition %}
+				<img src="{{asset('images/aliments/'~ aliment.image ~'.jpg')}}" style="width:25%" alt="">
 			{% endif %}
-			<div>{{form_row(form.image)}}</div>
+			{{form_row(form.imageFile)}}
 		</div>
 
 		<div class="col-6">
