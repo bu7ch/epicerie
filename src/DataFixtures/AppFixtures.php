@@ -13,7 +13,7 @@ class AppFixtures extends Fixture
         $a1= new Aliment();
         $a1->setName('carotte')
         ->setPrice(1.80)
-        ->setCalorie(36)
+        ->setCalorie(79)
         ->setProteine(0.77)
         ->setGlucide(5.3)
         ->setLipide(0.26)
@@ -23,7 +23,7 @@ class AppFixtures extends Fixture
         $a2= new Aliment();
         $a2->setName('tomate')
         ->setPrice(1.80)
-        ->setCalorie(36)
+        ->setCalorie(80)
         ->setProteine(0.77)
         ->setGlucide(5.3)
         ->setLipide(0.26)

@@ -45,6 +45,15 @@ class AlimentRepository extends ServiceEntityRepository
         }
     }
 
+
+    public function getAlimentByProperties($properties, $operator, $value){
+      return $this->createQueryBuilder('a')
+      ->andWhere('a.'.$properties.''.$operator.' :val')
+      ->setParameter('val',$value)
+      ->getQuery()
+      ->getResult();
+    }
+
     // /**
     //  * @return Aliment[] Returns an array of Aliment objects
     //  */

@@ -3,23 +3,28 @@
 {% block title %}Aliments
 {% endblock %}
 
-{% block monTitre %}Liste des aliments{% endblock %}
+{% block monTitre %}Liste des aliments
+{% endblock %}
 {% block body %}
+	<div class="container">
+  <a href="{{path('aliments')}}" class="btn btn-primary rounded">Tous</a>
+  <a href="{{path('aliment_by_calories', {'calorie':50})}}" class="btn btn-primary rounded">Aliments avec moins de 50 calories au 100g</a>
+		{% for aliment in aliments %}
 
-	{% for aliment in aliments %}
-
-		<div class="card" style="width: 18rem;">
-			<img src="{{asset('images/aliments/'~ aliment.image)}}" alt="" class="card-img-top" >
-			<div class="card-body">
-				<h5 class="card-title">{{aliment.name}}</h5>
-				<p class="card-subtitle">{{aliment.price}}</p>
-				<p class="card-subtitle">{{aliment.lipide}}</p>
-				<p class="card-subtitle">{{aliment.glucide}}</p>
-				<p class="card-subtitle">{{aliment.proteine}}</p>
-				<p class="card-subtitle">{{aliment.calorie}}</p>
+			<div class="card" style="width: 18rem;">
+				<img src="{{asset('images/aliments/'~ aliment.image)}}" alt="" class="card-img-top">
+				<div class="card-body">
+					<h5 class="card-title">{{aliment.name}}</h5>
+					<p class="card-subtitle">{{aliment.price}}</p>
+					<p class="card-subtitle">{{aliment.lipide}}</p>
+					<p class="card-subtitle">{{aliment.glucide}}</p>
+					<p class="card-subtitle">{{aliment.proteine}}</p>
+					<p class="card-subtitle">{{aliment.calorie}}</p>
+				</div>
 			</div>
-		</div>
 
-	{% endfor %}
+		{% endfor %}
+	</div>
+
 
 {% endblock %}

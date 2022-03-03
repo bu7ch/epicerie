@@ -17,4 +17,14 @@ class AlimentController extends AbstractController
             'aliments' => $aliments,
         ]);
     }
+
+    #[Route('/almient/calorie/{calorie}', name:'aliment_by_calories')]
+    public function aliments_less_calories( AlimentRepository $repository, $calorie ): Response 
+    {
+      $aliments = $repository->getAlimentByProperties('calorie', '<', $calorie);
+      return $this->render('aliment/index.html.twig', [
+        'aliments' => $aliments,
+
+      ]);
+    }
 }
