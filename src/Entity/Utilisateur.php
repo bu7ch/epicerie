@@ -19,7 +19,7 @@ class Utilisateur
     #[ORM\Column(type: 'string', length: 255)]
     private $password;
 
-    private $pa;
+    private $verificationPassword;
 
     public function getId(): ?int
     {

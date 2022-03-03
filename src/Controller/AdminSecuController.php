@@ -19,7 +19,7 @@ class AdminSecuController extends AbstractController
       $form = $this->createForm(InscriptionType::class, $utilisateur);
 
       $form->handleRequest($request);
-      if ($form->isSubmitted && $form->isValid()) {
+      if ($form->isSubmitted() && $form->isValid()) {
         $manager->persist($utilisateur);
         $manager->flush();
       }
