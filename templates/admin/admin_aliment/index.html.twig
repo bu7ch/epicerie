@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Administration des aliments
+{% endblock %}
+
+{% block monTitre %}Page Admin
+{% endblock %}
+
+{% block body %}
+	<table class="table">
+		<tr class="table-primary">
+			<td>Image</td>
+			<td>Aliment</td>
+			<td>Prix</td>
+			<td>Calories</td>
+			<td>Proteines</td>
+			<td>Glucides</td>
+			<td>Lipides</td>
+			<td>Actions</td>
+		</tr>
+		{% for aliment in aliments %}
+			<tr>
+				<td style="width:10%">
+					<img src="{{asset('images/aliments/'~ aliment.image)}}" class="img-fluid" alt="{{aliment.name}}"/>
+				</td>
+				<td>
+					<strong>{{aliment.name}}</strong>
+				</td>
+				<td>
+					{{aliment.price}}
+				</td>
+				<td>{{aliment.calorie}}</td>
+				<td>{{aliment.proteine}}</td>
+				<td>{{aliment.glucide}}</td>
+				<td>{{aliment.lipide}}</td>
+				<td></td>
+			</tr>
+
+		{% endfor %}
+	</table>
+
+
+{% endblock %}

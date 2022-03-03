@@ -17,7 +17,7 @@ class AppFixtures extends Fixture
         ->setProteine(0.77)
         ->setGlucide(5.3)
         ->setLipide(0.26)
-        ->setImage('carotte.jpeg');
+        ->setImage('carotte.jpg');
         $manager->persist($a1);
 
         $a2= new Aliment();
@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
         ->setProteine(0.77)
         ->setGlucide(5.3)
         ->setLipide(0.26)
-        ->setImage('tomate.jpeg');
+        ->setImage('tomate.jpg');
         $manager->persist($a2);
 
         $a3= new Aliment();
@@ -37,7 +37,7 @@ class AppFixtures extends Fixture
         ->setProteine(0.77)
         ->setGlucide(5.3)
         ->setLipide(0.26)
-        ->setImage('patate.jpeg');
+        ->setImage('patate.jpg');
         $manager->persist($a3);
 
         $a4= new Aliment();
@@ -47,7 +47,7 @@ class AppFixtures extends Fixture
         ->setProteine(0.77)
         ->setGlucide(5.3)
         ->setLipide(0.26)
-        ->setImage('pomme.jpeg');
+        ->setImage('pomme.jpg');
         $manager->persist($a4);
 
         $manager->flush();
