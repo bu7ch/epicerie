@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AdminSecuController extends AbstractController
 {
@@ -33,8 +34,11 @@ class AdminSecuController extends AbstractController
     }
 
     #[Route('/login', name: 'connexion')]
-    public function login() {
-      return $this->render('admin_secu/login.html.twig',[]);
+    public function login(AuthenticationUtils $util) {
+      return $this->render('admin_secu/login.html.twig',[
+        'lastUserName'=> $util->getLastUserName(),
+        'error'=>$util->getLastAuthenticationError()
+      ]);
     }
 
     #[Route('/logout', name: 'deconnexion')]

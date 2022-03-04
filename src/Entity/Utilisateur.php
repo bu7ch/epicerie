@@ -28,6 +28,9 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
   #[Assert\EqualTo(propertyPath: "password", message: "Les mdp ne sont pas equivalent")]
   private $verificationPassword;
 
+  #[ORM\Column(type: 'string', length: 255)]
+  private $roles;
+
   public function getId(): ?int
   {
     return $this->id;
@@ -70,7 +73,7 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
 
   public function getRoles(): array
   {
-    return ['ROLE_USER'];
+    return [$this->roles];
   }
   public function getUserIdentifier(): string
   {
@@ -78,9 +81,19 @@ class Utilisateur implements UserInterface, PasswordAuthenticatedUserInterface
   }
   public function eraseCredentials()
   {
-    
   }
   public function getSalt()
   {
+  }
+
+  public function setRoles(?string $roles): self
+  {
+    if ($roles === null) {
+      $this->roles = "ROLE_USER";
+    } else {
+      $this->roles = $roles;
+    }
+
+    return $this;
   }
 }
