@@ -37,4 +37,8 @@ class AdminSecuController extends AbstractController
       return $this->render('admin_secu/login.html.twig',[]);
     }
 
+    #[Route('/logout', name: 'deconnexion')]
+    public function logout() {
+    }
+
 }

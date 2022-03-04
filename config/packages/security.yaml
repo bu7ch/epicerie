@@ -22,6 +22,8 @@ security:
                 login_path: connexion
                 check_path: connexion
             logout:
+                path: deconnexion
+                target: aliments
 
 
             # activate different ways to authenticate
